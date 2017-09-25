@@ -1,0 +1,7 @@
+OSMO
+1. instalacja angulara 4
+1.1 ściągnąć i zainstalować najnowszą wersję node.js https://nodejs.org/en/download/
+1.2 sprawdzenie aktualnej wersji node. wpisać w konsoli polecenie: node -v
+1.3 zainstalować angular-cli. w konsoli komenda:  npm install -g @angular/cli  | sprawdzenie wersji: ng -v
+1.4 stworzyc nowy projekt: polecenie: ng new nazwa_projektu
+1.5 odpalić elipse i ściągnąć z markplace ide angulara: anuglarIDE 2017 Ci 6a
