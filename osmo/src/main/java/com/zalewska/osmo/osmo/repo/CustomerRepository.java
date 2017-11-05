@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.zalewska.osmo.osmo.model.Customer;
+import com.zalewska.osmo.osmo.model.Person;
 
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
-	List<Customer> findByLastName(String lastName);
+public interface CustomerRepository extends CrudRepository<Person, Long> {
+	List<Person> findByLastName(String lastName);
 }
