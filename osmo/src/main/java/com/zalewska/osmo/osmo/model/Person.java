@@ -28,6 +28,6 @@ public class Person extends  EntityAbstract implements Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("Person[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
+		return String.format("Person[id=%d, firstName='%s', lastName='%s']", getId(), getFirstName(), getLastName());
 	}
 }
