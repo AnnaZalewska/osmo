@@ -1,9 +1,11 @@
-package com.zalewska.osmo.osmo.controller;
+package com.zalewska.osmo.osmo.customer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zalewska.osmo.osmo.model.Person;
+import com.zalewska.osmo.osmo.customer.app.CustomerAsembler;
+import com.zalewska.osmo.osmo.customer.model.CustomerEntity;
+import com.zalewska.osmo.osmo.customer.model.dto.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,35 +15,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zalewska.osmo.osmo.repo.CustomerRepository;
+import com.zalewska.osmo.osmo.customer.repo.CustomerRepository;
 
 @RestController
 public class CustomerController {
 
 	@Autowired
 	CustomerRepository repository;
+	@Autowired
+    CustomerAsembler asembler;
 
 	@GetMapping(value="/customer",  produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Person> getAll() {
-		List<Person> list = new ArrayList<>();
-		Iterable<Person> customers = repository.findAll();
+        List<Person> list = new ArrayList<>();
+		Iterable<CustomerEntity> customers = repository.findAll();
 
-		customers.forEach(list::add);
-		return list;
+		customers.forEach(c ->list.add(asembler.toDto(c)));
+        return list;
 	}
 	
 	@PostMapping(value="/postcustomer")
-	public Person postCustomer(@RequestBody Person person) {
-
-		repository.save(new Person(person.getFirstName(), person.getLastName()));
-		return person;
+	public Person postCustomer(@RequestBody Person customer) {
+        repository.save(asembler.toEntity(customer));
+		return customer;
 	}
 
 	@GetMapping(value="/findbylastname/{lastName}",  produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Person> findByLastName(@PathVariable String lastName) {
 
-		List<Person> people = repository.findByLastName(lastName);
-		return people;
+		List<CustomerEntity> people = repository.findByLastName(lastName);
+		return null;//people;
 	}
 	
 	@DeleteMapping(value="/customer/{id}")

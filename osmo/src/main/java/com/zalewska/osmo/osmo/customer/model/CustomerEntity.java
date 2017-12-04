@@ -1,15 +1,21 @@
-package com.zalewska.osmo.osmo.model;
+package com.zalewska.osmo.osmo.customer.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "customer")
-public class CustomerEntity extends EntityAbstract {
+public class CustomerEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @Column(name = "firstname")
     private String firstName;
@@ -20,6 +26,4 @@ public class CustomerEntity extends EntityAbstract {
     @Column(name = "invoice_data")
     private String invoiceData;
 
-    @OneToMany(mappedBy = "activities", cascade = CascadeType.ALL)
-    private List<ActivitiesEntity> activities;
 }
