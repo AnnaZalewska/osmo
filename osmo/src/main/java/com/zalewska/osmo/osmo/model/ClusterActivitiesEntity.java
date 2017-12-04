@@ -12,9 +12,9 @@ import javax.persistence.Table;
 @Table(name = "cluster_activities")
 public class ClusterActivitiesEntity extends EntityAbstract {
 
-    @OneToMany(mappedBy = "cluster", cascade = CascadeType.ALL)
-    private ClusterEntity cluster;
-
-    @OneToMany(mappedBy = "activities", cascade = CascadeType.ALL)
-    private ActivitiesEntity activities;
+//    @OneToMany(mappedBy = "cluster", cascade = CascadeType.ALL)
+//    private ClusterEntity cluster;
+//
+//    @OneToMany(mappedBy = "activities", cascade = CascadeType.ALL)
+//    private ActivitiesEntity activities;
 }

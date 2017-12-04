@@ -13,9 +13,9 @@ public class ActivitiesEntity extends EntityAbstract {
     @Column(name = "subject")
     private String subject;
 
-    @OneToMany(mappedBy = "instructors", cascade = CascadeType.ALL)
-    private List<InstructorEntity> instructors;
-
-    @OneToMany(mappedBy = "cluster", cascade = CascadeType.ALL)
-    private ClusterEntity cluster;
+//    @OneToMany(mappedBy = "instructors", cascade = CascadeType.ALL)
+//    private List<InstructorEntity> instructors;
+//
+//    @OneToMany(mappedBy = "cluster", cascade = CascadeType.ALL)
+//    private ClusterEntity cluster;
 }

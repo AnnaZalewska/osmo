@@ -12,9 +12,9 @@ import javax.persistence.Table;
 @Table(name = "customer_activities")
 public class CustomerActivitiesEntity extends EntityAbstract {
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private CustomerEntity customer;
-
-    @OneToMany(mappedBy = "activities", cascade = CascadeType.ALL)
-    private ActivitiesEntity activities;
+//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+//    private CustomerEntity customer;
+//
+//    @OneToMany(mappedBy = "activities", cascade = CascadeType.ALL)
+//    private ActivitiesEntity activities;
 }
