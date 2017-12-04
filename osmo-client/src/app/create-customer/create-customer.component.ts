@@ -24,7 +24,6 @@ export class CreateCustomerComponent implements OnInit {
   }
 
   private save(): void {
-    console.log(this.customer)
     this.dataService.create(this.customer);
   }
 

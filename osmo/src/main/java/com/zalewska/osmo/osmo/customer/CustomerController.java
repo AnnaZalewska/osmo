@@ -42,15 +42,14 @@ public class CustomerController {
 
 	@GetMapping(value="/findbylastname/{lastName}",  produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Person> findByLastName(@PathVariable String lastName) {
-
+        List<Person> list = new ArrayList<>();
 		List<CustomerEntity> people = repository.findByLastName(lastName);
-		return null;//people;
+        people.forEach(c ->list.add(asembler.toDto(c)));
+		return list;
 	}
 	
 	@DeleteMapping(value="/customer/{id}")
 	public void deleteCustomer(@PathVariable long id){
-		Person person = new Person();
-		String value = person != null ? "yest" : "no";
 		repository.delete(id);
 	}
 }
